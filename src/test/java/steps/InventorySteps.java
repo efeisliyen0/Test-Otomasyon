@@ -17,8 +17,6 @@ public class InventorySteps {
     @Step("User should see products page")
     public void verifyProductsPage() {String title = elementhelper.getText(inventorylocators.PRODUCTS_TITLE);assert title.equals("Products");
     }
-
-
         @Step("User clicks <productName> product")
         public void clickProduct(String productName) {
         elementhelper.click(inventorylocators.getProduct(productName));}
