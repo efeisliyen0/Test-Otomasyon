@@ -9,6 +9,7 @@ public class inventorylocators {
     public static final By LOGOUT_BUTTON = By.id("logout_sidebar_link");
     public static final By ADD_TO_CART_BACKPACK = By.id("add-to-cart-sauce-labs-backpack");
     public static final By SHOPPING_CART_LINK = By.className("shopping_cart_link");
+    public static final By SORT_DROPDOWN = By.className("product_sort_container");
 
     public static By getProduct(String productName) {
         return By.xpath("//a[.//div[text()='" + productName + "']]");
