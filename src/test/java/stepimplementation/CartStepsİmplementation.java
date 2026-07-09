@@ -1,6 +1,5 @@
 package stepimplementation;
 
-import com.thoughtworks.gauge.Step;
 import helpers.elementhelper;
 import locators.cartlocators;
 import locators.loginlocators;
@@ -23,20 +22,17 @@ public class CartStepsİmplementation {
         }
     }
 
-    @Step("User enters <text> into <locatorName> field")
-    public void enterTextIntoField(String text, String locatorName) {
+    public void writeText(String text, String locatorName) {
         By locator = getLocator(locatorName);
         elementhelper.sendKeys(locator, text);
     }
 
-    @Step("User clicks <locatorName> button")
-    public void clickButton(String locatorName) {
+    public void clickElement(String locatorName) {
         By locator = getLocator(locatorName);
         elementhelper.click(locator);
     }
 
-    @Step("User should see <text> in the cart")
-    public void verifyItemInCart(String expectedText) {
+    public void verifyItem(String expectedText) {
         String actualText = elementhelper.getText(cartlocators.INVENTORY_ITEM_NAME);
         Assertions.assertThat(actualText)
                 .withFailMessage("Sepetteki urun ismi eslesmedi! Beklenen: " + expectedText + " ama sayfada gorunen: " + actualText)
