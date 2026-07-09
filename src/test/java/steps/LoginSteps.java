@@ -8,22 +8,15 @@ public class LoginSteps {
 
     @Step("User enters <username> into username field")
     public void enterUsername(String username) {
-        elementhelper.sendKeys(
-                loginlocators.USERNAME_INPUT,
-                username
+        elementhelper.sendKeys(loginlocators.USERNAME_INPUT, username
         );
     }
     @Step("User enters <password> into password field")
-    public void enterPassword(String password) {
-        elementhelper.sendKeys(
-                loginlocators.PASSWORD_INPUT,
-                password
+    public void enterPassword(String password) {elementhelper.sendKeys(loginlocators.PASSWORD_INPUT, password
         );
     }
     @Step("User clicks login button")
-    public void clickLoginButton() {
-        elementhelper.click(
-                loginlocators.LOGIN_BUTTON
+    public void clickLoginButton() {elementhelper.click(loginlocators.LOGIN_BUTTON
         );
     }
     @Step("User should see login page")
