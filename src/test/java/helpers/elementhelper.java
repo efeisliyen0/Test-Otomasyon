@@ -24,4 +24,8 @@ public class elementhelper {
         waithelper.waitForElement(locator);
         return Driver.getDriver().findElement(locator).isDisplayed();
     }
+    public static int getNumber(By locator) {waithelper.waitForElement(locator);
+        return Integer.parseInt(Driver.getDriver().findElement(locator).getText()
+        );
+    }
 }

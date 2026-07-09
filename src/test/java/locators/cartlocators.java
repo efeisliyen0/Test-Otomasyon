@@ -9,4 +9,5 @@ public class cartlocators {
     public static final By INVENTORY_ITEM_NAME = By.className("inventory_item_name");
     public static final By REMOVE_BACKPACK_BUTTON = By.id("remove-sauce-labs-backpack");
     public static final By CHECKOUT_BUTTON = By.id("checkout");
+    public static final By SHOPPING_CART_BADGE = By.className("shopping_cart_badge");
 }

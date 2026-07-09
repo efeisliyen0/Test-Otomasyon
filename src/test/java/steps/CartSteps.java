@@ -21,4 +21,16 @@ public class CartSteps {
     public void verifyCart(String expectedText) {
         cartImpl.verifyItem(expectedText);
     }
+
+    @Step("Cart badge should be <count>")
+    public void verifyCartBadge(int count) {cartImpl.verifyCartBadgeCount(count);}
+
+    @Step("User saves cart badge count")
+    public void saveCartBadgeCount() {cartImpl.saveCartBadgeCount();
+    }
+
+    @Step("Cart badge should decrease by one")
+    public void verifyCartBadgeDecreased() {cartImpl.verifyCartBadgeDecreased();
+    }
 }
+
