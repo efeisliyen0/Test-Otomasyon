@@ -17,18 +17,13 @@ public class CheckOutSteps {
         checkOutImpl.fillCustomerInformation(firstName, lastName, postalCode);
     }
 
-    @Step("Click the continue button")
-    public void clickContinue() {
-        checkOutImpl.clickContinueButton();
-    }
-
-    @Step("Click the finish button")
-    public void clickFinish() {
-        checkOutImpl.clickFinishButton();
-    }
 
     @Step("Verify order completion message is <expectedMessage>")
     public void verifyOrderComplete(String expectedMessage) {
         checkOutImpl.verifyOrderCompleteMessage(expectedMessage);
+    }
+    @Step("Verify checkout error message is <expectedMessage>")
+    public void verifyCheckoutError(String expectedMessage) {
+        checkOutImpl.verifyCheckoutErrorMessage(expectedMessage);
     }
 }

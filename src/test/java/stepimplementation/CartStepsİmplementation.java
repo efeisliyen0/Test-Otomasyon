@@ -2,6 +2,7 @@ package stepimplementation;
 
 import helpers.elementhelper;
 import locators.cartlocators;
+import locators.checkoutlocators;
 import locators.loginlocators;
 import org.openqa.selenium.By;
 import org.assertj.core.api.Assertions;
@@ -48,6 +49,11 @@ public class CartStepsİmplementation {
             case "shopping cart": return cartlocators.SHOPPING_CART_LINK;
             case "cart title": return cartlocators.CART_TITLE;
             case "remove backpack": return cartlocators.REMOVE_BACKPACK_BUTTON;
+            case "checkout": return checkoutlocators.CHECKOUT_BUTTON;
+            case "continue": return checkoutlocators.CONTINUE_BUTTON;
+            case "finish": return checkoutlocators.FINISH_BUTTON;
+            case "menu": return loginlocators.MENU_BUTTON;
+            case "logout": return loginlocators.LOGOUT_BUTTON;
             default: throw new IllegalArgumentException("Locator bulunamadi veya yanlis yazildi: " + locatorName);
         }
     }

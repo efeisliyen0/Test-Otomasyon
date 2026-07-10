@@ -10,4 +10,5 @@ public class checkoutlocators {
     public static final By CONTINUE_BUTTON = By.id("continue");
     public static final By FINISH_BUTTON = By.id("finish");
     public static final By COMPLETE_HEADER = By.className("complete-header");
+    public static final By ERROR_MESSAGE = By.cssSelector("h3[data-test='error']");
 }
