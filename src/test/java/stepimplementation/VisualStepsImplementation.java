@@ -20,9 +20,8 @@ public class VisualStepsImplementation {
             File directory = new File(path);if(!directory.exists()){directory.mkdirs();}
             File destination = new File(path + fileName + ".png");
             Files.copy(screenshot.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("Screenshot saved : " + destination.getPath();
-        } catch(Exception e){throw new RuntimeException("Screenshot alınamadı : " + e.getMessage());
-        }
+            System.out.println("Screenshot saved : " + destination.getPath());
+        } catch(Exception e){throw new RuntimeException("Screenshot alınamadı : " + e.getMessage());}
     }
 
 }
