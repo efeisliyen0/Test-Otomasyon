@@ -3,9 +3,11 @@ package Steps;
 import com.thoughtworks.gauge.Step;
 import StepImplementation.VerifyImp;
 import helpers.elementhelper;
+import locators.LocatorManager;
 import locators.checkoutlocators;
 import locators.inventorylocators;
 import locators.loginlocators;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import driverManager.Driver;
 import org.openqa.selenium.WebElement;
@@ -68,5 +70,14 @@ public class VerifySteps {
     public void saveCartBadgeCount() {
         String badgeText = elementhelper.getText(inventorylocators.CART_BADGE);
         savedCartBadgeCount = Integer.parseInt(badgeText);
+    }
+    @Step("User verifies <locatorName> text is <expectedText>")
+    public void verifyTextValue(String locatorName, String expectedText) {
+
+        By locator = LocatorManager.getLocator(locatorName);
+
+        String actualText = elementhelper.getText(locator);
+
+        Assert.assertEquals(actualText, expectedText);
     }
 }
