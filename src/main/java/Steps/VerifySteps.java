@@ -33,13 +33,16 @@ public class VerifySteps {
     }
 
     @Step("User verifies <locatorName> value is <expectedNumber>")
-    public void verifyNumber(String locatorName, int expectedNumber) {
+    public void verifyNumber(String locatorName, String expectedNumber) {
 
         int actualNumber = elementhelper.getNumber(
                 LocatorManager.getLocator(locatorName)
         );
 
-        AssertionHelper.assertEquals(actualNumber, expectedNumber);
+        AssertionHelper.assertEquals(
+                actualNumber,
+                Integer.parseInt(expectedNumber)
+        );
     }
 
     @Step("User verifies <locatorName> is displayed")
@@ -55,11 +58,11 @@ public class VerifySteps {
     @Step("User verifies <locatorName> is not displayed")
     public void verifyNotDisplayed(String locatorName) {
 
-        AssertionHelper.assertFalse(
-                elementhelper.isDisplayed(
-                        LocatorManager.getLocator(locatorName)
-                )
-        );
+        boolean exists = Driver.getDriver()
+                .findElements(LocatorManager.getLocator(locatorName))
+                .size() > 0;
+
+        AssertionHelper.assertFalse(exists);
     }
 
     @Step("User should see products")
