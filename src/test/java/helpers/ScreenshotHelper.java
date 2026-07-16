@@ -1,4 +1,5 @@
 package helpers;
 
-public class ScreenshotHelper {
+public interface ScreenshotHelper {
+    void takeScreenshot(String screenshotName, String folderType);
 }
