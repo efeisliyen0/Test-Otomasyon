@@ -32,7 +32,6 @@ public class InventoryStepsImplementation {
         assert elementhelper.isDisplayed(inventorylocators.getProductDetailTitle(productName));
     }
 
-
     public void selectFilterOption(String optionText) {
         Select select = new Select(Driver.getDriver().findElement(inventorylocators.SORT_DROPDOWN));
         select.selectByVisibleText(optionText);

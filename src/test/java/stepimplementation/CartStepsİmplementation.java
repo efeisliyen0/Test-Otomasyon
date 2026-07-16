@@ -54,6 +54,8 @@ public class CartStepsİmplementation {
             case "finish": return checkoutlocators.FINISH_BUTTON;
             case "menu": return loginlocators.MENU_BUTTON;
             case "logout": return loginlocators.LOGOUT_BUTTON;
+            case "all items": return loginlocators.ALLITEMS_BUTTON;
+            case "reset app state": return loginlocators.RESET_BUTTON;
             default: throw new IllegalArgumentException("Locator bulunamadi veya yanlis yazildi: " + locatorName);
         }
     }
