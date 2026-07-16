@@ -1,20 +1,19 @@
 package helpers;
 
-import driverManager.Driver;
+import helperimplementation.WaitHelperImplementation;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
 public class waithelper {
-    private static WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+    private static final WaitHelperImplementation implementation = new WaitHelperImplementation();
+
     public static void waitForElement(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        implementation.waitForElement(locator);
     }
     public static void waitForClickable(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        implementation.waitForClickable(locator);
     }
     public static void waitForInvisible(By locator) {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+        implementation.waitForInvisible(locator);
     }
 }
