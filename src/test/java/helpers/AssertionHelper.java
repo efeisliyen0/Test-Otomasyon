@@ -1,25 +1,22 @@
 package helpers;
 
-import helperimplementation.AssertionHelperImplementation;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AssertionHelper {
 
-    private static final AssertionHelperImplementation implementation =
-            new AssertionHelperImplementation();
-
     public static void assertEquals(String actual, String expected) {
-        implementation.assertEquals(actual, expected);
+        assertThat(actual).isEqualTo(expected);
     }
 
     public static void assertEquals(int actual, int expected) {
-        implementation.assertEquals(actual, expected);
+        assertThat(actual).isEqualTo(expected);
     }
 
     public static void assertTrue(boolean condition) {
-        implementation.assertTrue(condition);
+        assertThat(condition).isTrue();
     }
 
     public static void assertFalse(boolean condition) {
-        implementation.assertFalse(condition);
+        assertThat(condition).isFalse();
     }
 }
