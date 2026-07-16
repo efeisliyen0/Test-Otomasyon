@@ -1,7 +1,7 @@
 package Steps;
 
 import com.thoughtworks.gauge.Step;
-import stepimplementation.ClickImp;
+import StepImplementation.ClickImp;
 
 public class ClickSteps {
 
