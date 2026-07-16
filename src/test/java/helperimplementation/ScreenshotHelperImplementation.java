@@ -1,26 +1,40 @@
-package helpers;
+package helperimplementation;
 
 import driverManager.Driver;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
 import java.io.File;
-import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
-public class ScreenshotHelperImplementation implements ScreenshotHelper {
+public class ScreenshotHelperImplementation {
 
-    @Override
-    public void takeScreenshot(String screenshotName, String folderType) {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
-        File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        // Proje dizininde screenshots klasörü altına baseline veya actual olarak kaydeder
-        String path = "screenshots/" + folderType + "/" + screenshotName + ".png";
-        File destination = new File(path);
+    public void takeScreenshot(String path, String fileName) {
 
         try {
-            FileUtils.copyFile(source, destination);
-        } catch (IOException e) {
-            System.out.println("Ekran görüntüsü kaydedilemedi: " + e.getMessage());
+
+            File screenshot = ((TakesScreenshot) Driver.getDriver())
+                    .getScreenshotAs(OutputType.FILE);
+
+            File directory = new File(path);
+
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+
+            File destination = new File(path + fileName + ".png");
+
+            Files.copy(
+                    screenshot.toPath(),
+                    destination.toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+            );
+
+            System.out.println("Screenshot saved: " + destination.getAbsolutePath());
+
+        } catch (Exception e) {
+            throw new RuntimeException("Screenshot alınamadı : " + e.getMessage());
         }
     }
 }

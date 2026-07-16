@@ -1,22 +1,20 @@
-package steps;
+package Steps;
 
 import com.thoughtworks.gauge.Step;
 import StepImplementation.ScreenshotImp;
 
 public class ScreenshotSteps {
-    private ScreenshotImp screenshotImp;
 
-    public ScreenshotSteps() {
-        this.screenshotImp = new ScreenshotImp();
+    private final ScreenshotImp screenshotImplementation =
+            new ScreenshotImp();
+
+    @Step("User takes baseline screenshot as <fileName>")
+    public void takeBaselineScreenshot(String fileName) {
+        screenshotImplementation.takeBaselineScreenshot(fileName);
     }
 
-    @Step("User takes baseline screenshot as <imageName>")
-    public void captureBaseline(String imageName) {
-        screenshotImp.takeBaseline(imageName);
-    }
-
-    @Step("User takes actual screenshot as <imageName>")
-    public void captureActual(String imageName) {
-        screenshotImp.takeActual(imageName);
+    @Step("User takes actual screenshot as <fileName>")
+    public void takeActualScreenshot(String fileName) {
+        screenshotImplementation.takeActualScreenshot(fileName);
     }
 }

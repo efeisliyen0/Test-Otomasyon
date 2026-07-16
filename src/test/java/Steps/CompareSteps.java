@@ -1,17 +1,16 @@
-package steps;
+package Steps;
 
 import com.thoughtworks.gauge.Step;
 import StepImplementation.CompareImp;
 
 public class CompareSteps {
-    private CompareImp compareImpl;
 
-    public CompareSteps() {
-        this.compareImpl = new CompareImp();
+    private final CompareImp compareImplementation =
+            new CompareImp();
+
+    @Step("User compares screenshot with baseline <fileName>")
+    public void compareScreenshot(String fileName) {
+        compareImplementation.compareScreenshot(fileName);
     }
 
-    @Step("User compares screenshot with baseline <imageName>")
-    public void compareScreenshots(String imageName) {
-        compareImpl.doComparison(imageName);
-    }
 }

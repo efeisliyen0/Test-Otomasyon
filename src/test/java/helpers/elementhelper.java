@@ -11,4 +11,7 @@ public class elementhelper {
     public static void clear(By locator) {implementation.clear(locator);}
     public static String getText(By locator) {return implementation.getText(locator);}
     public static boolean isDisplayed(By locator) {return implementation.isDisplayed(locator);}
-    public static int getNumber(By locator) {return implementation.getNumber(locator);}}
+    public static int getNumber(By locator) {return implementation.getNumber(locator);}
+    public static void selectByVisibleText(By locator, String text) {implementation.selectByVisibleText(locator, text);
+    }
+}

@@ -9,15 +9,26 @@ import java.time.Duration;
 
 public class WaitHelperImplementation {
 
-    private final WebDriverWait wait =
-            new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
     public void waitForElement(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     public void waitForClickable(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(locator));
     }
+
     public void waitForInvisible(By locator) {
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+        new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+    public void waitSeconds(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000L);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 }

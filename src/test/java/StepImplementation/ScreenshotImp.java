@@ -1,20 +1,20 @@
 package StepImplementation;
 
 import helpers.ScreenshotHelper;
-import helpers.ScreenshotHelperImplementation;
 
 public class ScreenshotImp {
-    private ScreenshotHelper screenshotHelper;
 
-    public ScreenshotImp() {
-        this.screenshotHelper = new ScreenshotHelperImplementation();
+    private static final String BASELINE_PATH =
+            ".gauge/screenshots/visual/baseline/";
+
+    private static final String ACTUAL_PATH =
+            ".gauge/screenshots/visual/actual/";
+
+    public void takeBaselineScreenshot(String fileName) {
+        ScreenshotHelper.takeScreenshot(BASELINE_PATH, fileName);
     }
 
-    public void takeBaseline(String name) {
-        screenshotHelper.takeScreenshot(name, "baseline");
-    }
-
-    public void takeActual(String name) {
-        screenshotHelper.takeScreenshot(name, "actual");
+    public void takeActualScreenshot(String fileName) {
+        ScreenshotHelper.takeScreenshot(ACTUAL_PATH, fileName);
     }
 }

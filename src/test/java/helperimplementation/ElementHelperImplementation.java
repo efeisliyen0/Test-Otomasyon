@@ -3,6 +3,7 @@ package helperimplementation;
 import driverManager.Driver;
 import helpers.waithelper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 public class ElementHelperImplementation {
 
@@ -29,5 +30,9 @@ public class ElementHelperImplementation {
     public int getNumber(By locator) {
         waithelper.waitForElement(locator);
         return Integer.parseInt(Driver.getDriver().findElement(locator).getText());
+    }
+    public void selectByVisibleText(By locator, String text) {
+        Select select = new Select(Driver.getDriver().findElement(locator));
+        select.selectByVisibleText(text);
     }
 }

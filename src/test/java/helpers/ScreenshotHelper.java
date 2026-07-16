@@ -1,5 +1,13 @@
 package helpers;
 
-public interface ScreenshotHelper {
-    void takeScreenshot(String screenshotName, String folderType);
+import helperimplementation.ScreenshotHelperImplementation;
+
+public class ScreenshotHelper {
+
+    private static final ScreenshotHelperImplementation implementation =
+            new ScreenshotHelperImplementation();
+
+    public static void takeScreenshot(String path, String fileName) {
+        implementation.takeScreenshot(path, fileName);
+    }
 }

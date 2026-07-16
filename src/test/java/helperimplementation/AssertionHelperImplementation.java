@@ -1,54 +1,26 @@
-package helpers;
+package helperimplementation;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert; // TestNG kullanıyorsan. JUnit kullanıyorsan org.junit.Assert olarak değiştir
-import utils.LocatorManager;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class AssertionHelperImplementation implements AssertionHelper {
+public class AssertionHelperImplementation {
 
-    private WaitHelper waitHelper = new WaitHelperImplementation();
-    private static int savedBadgeCount = 0; // Sepet sayısını geçici olarak tutmak için
-
-    @Override
-    public void verifyElementIsDisplayed(String elementKey) {
-        By locator = LocatorManager.getLocator(elementKey);
-        WebElement element = waitHelper.waitForElementVisible(locator, 10);
-        Assert.assertTrue(element.isDisplayed(), elementKey + " elementi ekranda görünmüyor!");
+    public void assertEquals(String actual, String expected) {
+        assertThat(actual)
+                .isEqualTo(expected);
     }
 
-    @Override
-    public void verifyElementTextContains(String elementKey, String expectedText) {
-        By locator = LocatorManager.getLocator(elementKey);
-        WebElement element = waitHelper.waitForElementVisible(locator, 10);
-        Assert.assertTrue(element.getText().contains(expectedText), "Beklenen metin eşleşmedi! Gelen: " + element.getText());
+    public void assertEquals(int actual, int expected) {
+        assertThat(actual)
+                .isEqualTo(expected);
     }
 
-    @Override
-    public void verifyElementTextEquals(String elementKey, String expectedText) {
-        By locator = LocatorManager.getLocator(elementKey);
-        WebElement element = waitHelper.waitForElementVisible(locator, 10);
-        Assert.assertEquals(element.getText(), expectedText, "Metinler birebir eşleşmiyor!");
+    public void assertTrue(boolean condition) {
+        assertThat(condition)
+                .isTrue();
     }
 
-    @Override
-    public void saveCartBadgeCount() {
-        By locator = LocatorManager.getLocator("cart badge");
-        WebElement element = waitHelper.waitForElementVisible(locator, 5);
-        savedBadgeCount = Integer.parseInt(element.getText());
-    }
-
-    @Override
-    public void verifyCartBadgeDecreased() {
-        By locator = LocatorManager.getLocator("cart badge");
-        int currentCount = 0;
-        try {
-            // Eğer sepet tamamen boşalırsa badge elementi kaybolabilir, bunu try-catch ile kontrol ediyoruz
-            WebElement element = waitHelper.waitForElementVisible(locator, 3);
-            currentCount = Integer.parseInt(element.getText());
-        } catch (Exception e) {
-            currentCount = 0;
-        }
-        Assert.assertTrue(currentCount < savedBadgeCount, "Sepet simgesindeki sayı azalmadı!");
+    public void assertFalse(boolean condition) {
+        assertThat(condition)
+                .isFalse();
     }
 }

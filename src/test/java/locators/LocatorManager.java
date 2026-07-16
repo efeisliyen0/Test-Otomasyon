@@ -29,6 +29,8 @@ public class LocatorManager {
             case "finish": return checkoutlocators.FINISH_BUTTON;
             case "complete message": return checkoutlocators.COMPLETE_HEADER;
             case "checkout error": return checkoutlocators.ERROR_MESSAGE;
+            case "inventory item name": return cartlocators.INVENTORY_ITEM_NAME;
+            case "shopping cart badge": return cartlocators.SHOPPING_CART_BADGE;
             default: throw new IllegalArgumentException("Locator bulunamadı: " + locatorName);
         }
     }
