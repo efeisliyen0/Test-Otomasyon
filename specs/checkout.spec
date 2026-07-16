@@ -11,7 +11,7 @@
 * Fill customer information as "Test", "User", "34000"
 * User clicks "continue" button
 * User clicks "finish" button
-* Verify order completion message is "Thank you for your order!"
+* Order complete message should be "Thank you for your order!"
 
 ## Checkout Without First Name
 * User enters "standard_user" into username field
