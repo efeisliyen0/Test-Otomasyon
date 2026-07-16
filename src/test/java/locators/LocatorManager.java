@@ -4,9 +4,17 @@ import org.openqa.selenium.By;
 
 public class LocatorManager {
     public static By getLocator(String locatorName) {
-        switch (locatorName.toLowerCase()) {
+        // Gelen anahtarı tamamen küçük harfe çevirip boşlukları temizliyoruz
+        switch (locatorName.toLowerCase().trim()) {
             case "username": return loginlocators.USERNAME_INPUT;
             case "password": return loginlocators.PASSWORD_INPUT;
+            case "products page": return By.className("title");
+            // Ürün ismine tıklayarak detay sayfasına gitmek için:
+            case "sauce labs backpack":
+                return By.xpath("//div[text()='Sauce Labs Backpack']");
+            case "product name":
+                // inventory_details_name class'ını değil, doğrudan sayfadaki büyük başlığı hedefliyoruz
+                return By.xpath("//div[@class='inventory_details_container']//div[contains(@class, 'name')]");
             case "login": return loginlocators.LOGIN_BUTTON;
             case "menu": return loginlocators.MENU_BUTTON;
             case "logout": return loginlocators.LOGOUT_BUTTON;

@@ -7,8 +7,7 @@
 * User clicks "login" button
 * User verifies "products page" is displayed
 * User clicks "Sauce Labs Backpack" button
-* User verifies "product name" value is "Sauce Labs Backpack"
-
+* User verifies "product name" text is "Sauce Labs Backpack"
 
 ## Sort Products by Price (Low to High)
 

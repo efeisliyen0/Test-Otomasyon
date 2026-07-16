@@ -29,8 +29,11 @@ public class elementhelper {
     }
 
     public static boolean isDisplayed(By locator) {
-        waithelper.waitForElement(locator);
-        return Driver.getDriver().findElement(locator).isDisplayed();
+        try {
+            return Driver.getDriver().findElement(locator).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false; // Element sayfada hiç yoksa hata verme, false dön
+        }
     }
 
     public static int getNumber(By locator) {

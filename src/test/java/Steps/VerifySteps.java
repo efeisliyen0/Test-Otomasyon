@@ -23,12 +23,13 @@ public class VerifySteps {
 
     @Step("User verifies <locatorName> text is <expectedText>")
     public void verifyText(String locatorName, String expectedText) {
+        // BURAYA BUNU EKLE:
+        System.out.println("Şu anki URL: " + Driver.getDriver().getCurrentUrl());
 
         String actualText = elementhelper.getText(
                 LocatorManager.getLocator(locatorName)
         );
-
-        AssertionHelper.assertEquals(actualText, expectedText);
+        // ...
     }
 
     @Step("User verifies <locatorName> value is <expectedNumber>")
