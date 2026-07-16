@@ -1,30 +1,31 @@
 package Steps;
 
 import com.thoughtworks.gauge.Step;
-import StepImplementation.WaitImp;
+import helpers.waithelper;
+import locators.LocatorManager;
 
 public class WaitSteps {
 
-    private final WaitImp waitImplementation =
-            new WaitImp();
-
     @Step("Wait until <locatorName> is visible")
     public void waitForElement(String locatorName) {
-        waitImplementation.waitForElement(locatorName);
+        waithelper.waitForElement(
+                LocatorManager.getLocator(locatorName));
     }
 
     @Step("Wait until <locatorName> is clickable")
     public void waitForClickable(String locatorName) {
-        waitImplementation.waitForClickable(locatorName);
+        waithelper.waitForClickable(
+                LocatorManager.getLocator(locatorName));
     }
 
     @Step("Wait until <locatorName> disappears")
     public void waitForInvisible(String locatorName) {
-        waitImplementation.waitForInvisible(locatorName);
+        waithelper.waitForInvisible(
+                LocatorManager.getLocator(locatorName));
     }
 
     @Step("Wait <seconds> seconds")
     public void waitSeconds(int seconds) {
-        waitImplementation.waitSeconds(seconds);
+        waithelper.waitSeconds(seconds);
     }
 }

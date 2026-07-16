@@ -1,40 +1,37 @@
 package Steps;
 
 import com.thoughtworks.gauge.Step;
-import StepImplementation.ActionImp;
+import driverManager.Driver;
 
 public class ActionSteps {
 
-    private final ActionImp actionImplementation =
-            new ActionImp();
-
     @Step("User refreshes the page")
     public void refreshPage() {
-        actionImplementation.refreshPage();
+        Driver.getDriver().navigate().refresh();
     }
 
     @Step("User goes back")
     public void goBack() {
-        actionImplementation.goBack();
+        Driver.getDriver().navigate().back();
     }
 
     @Step("User goes forward")
     public void goForward() {
-        actionImplementation.goForward();
+        Driver.getDriver().navigate().forward();
     }
 
     @Step("User maximizes the browser")
     public void maximizeWindow() {
-        actionImplementation.maximizeWindow();
+        Driver.getDriver().manage().window().maximize();
     }
 
     @Step("User minimizes the browser")
     public void minimizeWindow() {
-        actionImplementation.minimizeWindow();
+        Driver.getDriver().manage().window().minimize();
     }
 
     @Step("User opens <url>")
     public void openUrl(String url) {
-        actionImplementation.openUrl(url);
+        Driver.getDriver().get(url);
     }
 }
