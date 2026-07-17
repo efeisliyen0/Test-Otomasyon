@@ -1,45 +1,23 @@
 package locators;
 
 import org.openqa.selenium.By;
+import utils.JsonReader;
 
 public class LocatorManager {
+
     public static By getLocator(String locatorName) {
-        // Gelen anahtarı tamamen küçük harfe çevirip boşlukları temizliyoruz
-        switch (locatorName.toLowerCase().trim()) {
-            case "username": return loginlocators.USERNAME_INPUT;
-            case "password": return loginlocators.PASSWORD_INPUT;
-            case "products page": return By.className("title");
-            // Ürün ismine tıklayarak detay sayfasına gitmek için:
-            case "sauce labs backpack":
-                return By.xpath("//div[text()='Sauce Labs Backpack']");
-            case "product name":
-                // inventory_details_name class'ını değil, doğrudan sayfadaki büyük başlığı hedefliyoruz
-                return By.xpath("//div[@class='inventory_details_container']//div[contains(@class, 'name')]");
-            case "login": return loginlocators.LOGIN_BUTTON;
-            case "menu": return loginlocators.MENU_BUTTON;
-            case "logout": return loginlocators.LOGOUT_BUTTON;
-            case "reset app state": return loginlocators.RESET_BUTTON;
-            case "all items": return loginlocators.ALLITEMS_BUTTON;
-            case "login error": return loginlocators.ERROR_MESSAGE;
-            case "products": return inventorylocators.PRODUCTS_TITLE;
-            case "shopping cart": return inventorylocators.SHOPPING_CART_LINK;
-            case "sort": return inventorylocators.SORT_DROPDOWN;
-            case "add to cart backpack": return inventorylocators.ADD_TO_CART_BACKPACK;
-            case "cart title": return cartlocators.CART_TITLE;
-            case "cart badge": return cartlocators.SHOPPING_CART_BADGE;
-            case "cart item": return cartlocators.INVENTORY_ITEM_NAME;
-            case "remove backpack": return cartlocators.REMOVE_BACKPACK_BUTTON;
-            case "checkout": return cartlocators.CHECKOUT_BUTTON;
-            case "first name": return checkoutlocators.FIRST_NAME_INPUT;
-            case "last name": return checkoutlocators.LAST_NAME_INPUT;
-            case "postal code": return checkoutlocators.POSTAL_CODE_INPUT;
-            case "continue": return checkoutlocators.CONTINUE_BUTTON;
-            case "finish": return checkoutlocators.FINISH_BUTTON;
-            case "complete message": return checkoutlocators.COMPLETE_HEADER;
-            case "checkout error": return checkoutlocators.ERROR_MESSAGE;
-            case "inventory item name": return cartlocators.INVENTORY_ITEM_NAME;
-            case "shopping cart badge": return cartlocators.SHOPPING_CART_BADGE;
-            default: throw new IllegalArgumentException("Locator bulunamadı: " + locatorName);
+        String type = JsonReader.getType(locatorName);
+        String value = JsonReader.getValue(locatorName);
+        switch (type.toLowerCase()) {
+            case "id": return By.id(value);
+            case "classname": return By.className(value);
+            case "name": return By.name(value);
+            case "css": return By.cssSelector(value);
+            case "xpath": return By.xpath(value);
+            case "tag": return By.tagName(value);
+            case "linktext": return By.linkText(value);
+            case "partiallinktext": return By.partialLinkText(value);
+            default: throw new IllegalArgumentException("Desteklenmeyen locator tipi : " + type);
         }
     }
 }

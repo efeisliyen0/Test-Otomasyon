@@ -2,8 +2,8 @@ package Steps;
 
 import com.thoughtworks.gauge.Step;
 import driverManager.Driver;
-import locators.LocatorManager;
 import org.openqa.selenium.support.ui.Select;
+import utils.JsonReader;
 
 public class SelectSteps {
 
@@ -12,7 +12,7 @@ public class SelectSteps {
 
         Select select = new Select(
                 Driver.getDriver().findElement(
-                        LocatorManager.getLocator(locatorName)
+                        JsonReader.getLocator(locatorName)
                 )
         );
 
@@ -24,7 +24,7 @@ public class SelectSteps {
 
         Select select = new Select(
                 Driver.getDriver().findElement(
-                        LocatorManager.getLocator(locatorName)
+                        JsonReader.getLocator(locatorName)
                 )
         );
 
@@ -33,13 +33,7 @@ public class SelectSteps {
 
     @Step("User selects index <index> from <locatorName>")
     public void selectByIndex(int index, String locatorName) {
-
-        Select select = new Select(
-                Driver.getDriver().findElement(
-                        LocatorManager.getLocator(locatorName)
-                )
-        );
-
+        Select select = new Select(Driver.getDriver().findElement(JsonReader.getLocator(locatorName)));
         select.selectByIndex(index);
     }
 }

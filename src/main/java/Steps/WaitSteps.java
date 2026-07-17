@@ -2,26 +2,23 @@ package Steps;
 
 import com.thoughtworks.gauge.Step;
 import helpers.waithelper;
-import locators.LocatorManager;
+import utils.JsonReader;
 
 public class WaitSteps {
 
     @Step("Wait until <locatorName> is visible")
     public void waitForElement(String locatorName) {
-        waithelper.waitForElement(
-                LocatorManager.getLocator(locatorName));
+        waithelper.waitForElement(JsonReader.getLocator(locatorName));
     }
 
     @Step("Wait until <locatorName> is clickable")
     public void waitForClickable(String locatorName) {
-        waithelper.waitForClickable(
-                LocatorManager.getLocator(locatorName));
+        waithelper.waitForClickable(JsonReader.getLocator(locatorName));
     }
 
     @Step("Wait until <locatorName> disappears")
     public void waitForInvisible(String locatorName) {
-        waithelper.waitForInvisible(
-                LocatorManager.getLocator(locatorName));
+        waithelper.waitForInvisible(JsonReader.getLocator(locatorName));
     }
 
     @Step("Wait <seconds> seconds")
