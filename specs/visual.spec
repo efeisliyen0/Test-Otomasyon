@@ -2,17 +2,17 @@
 
 ## Visual Login Comparison Test
 
-* User enters "standard_user" into "username" field
-* User enters "secret_sauce" into "password" field
+* User enters "login.standardUser" into "username" field
+* User enters "login.password" into "password" field
 * User clicks "login" button
 * User verifies "products page" is displayed
-* User takes baseline screenshot as "login_page"
+* User takes baseline screenshot as "login.screenshotName"
 * User clicks "menu" button
 * User clicks "logout" button
 * User should see login page
-* User enters "visual_user" into "username" field
-* User enters "secret_sauce" into "password" field
+* User enters "login.visualUser" into "username" field
+* User enters "login.password" into "password" field
 * User clicks "login" button
 * User verifies "products page" is displayed
-* User takes actual screenshot as "login_page"
-* User compares screenshot with baseline "login_page"
+* User takes actual screenshot as "login.screenshotName"
+* User compares screenshot with baseline "login.screenshotName"

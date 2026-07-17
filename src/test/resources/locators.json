@@ -114,5 +114,5 @@
   "inventory item name": {
   "type": "className",
   "value": "inventory_item_name"
-}
+  }
 }

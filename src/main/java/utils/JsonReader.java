@@ -10,7 +10,7 @@ public class JsonReader {
     static {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            json = mapper.readTree(new File("src/test/resources/testdata/locators.json"));
+            json = mapper.readTree(new File("src/test/resources/locators.json"));
         } catch (Exception e) {
             throw new RuntimeException("locators.json okunamadı!");
         }

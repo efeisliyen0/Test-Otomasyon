@@ -7,6 +7,7 @@ import helpers.elementhelper;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import utils.JsonReader;
+import utils.TestDataReader;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,68 +19,183 @@ public class VerifySteps {
 
     @Step("User verifies <locatorName> text is <expectedText>")
     public void verifyText(String locatorName, String expectedText) {
-        String actualText = elementhelper.getText(JsonReader.getLocator(locatorName));
-        AssertionHelper.assertEquals(actualText, expectedText);
+
+        String expectedValue = getTestData(expectedText);
+
+        String actualText = elementhelper.getText(
+                JsonReader.getLocator(locatorName)
+        );
+
+        AssertionHelper.assertEquals(actualText, expectedValue);
     }
+
 
     @Step("User verifies <locatorName> value is <expectedNumber>")
     public void verifyNumber(String locatorName, String expectedNumber) {
-        int actualNumber = elementhelper.getNumber(JsonReader.getLocator(locatorName));
-        AssertionHelper.assertEquals(actualNumber, Integer.parseInt(expectedNumber));
+
+        String expectedValue = getTestData(expectedNumber);
+
+        int actualNumber = elementhelper.getNumber(
+                JsonReader.getLocator(locatorName)
+        );
+
+        AssertionHelper.assertEquals(
+                actualNumber,
+                Integer.parseInt(expectedValue)
+        );
     }
+
 
     @Step("User verifies <locatorName> is displayed")
     public void verifyDisplayed(String locatorName) {
-        AssertionHelper.assertTrue(elementhelper.isDisplayed(JsonReader.getLocator(locatorName)));
+
+        AssertionHelper.assertTrue(
+                elementhelper.isDisplayed(
+                        JsonReader.getLocator(locatorName)
+                )
+        );
     }
+
 
     @Step("User verifies <locatorName> is not displayed")
     public void verifyNotDisplayed(String locatorName) {
-        boolean exists = Driver.getDriver().findElements(JsonReader.getLocator(locatorName)).size() > 0;
+
+        boolean exists =
+                Driver.getDriver()
+                        .findElements(JsonReader.getLocator(locatorName))
+                        .size() > 0;
+
         AssertionHelper.assertFalse(exists);
     }
 
+
     @Step("User should see products")
     public void verifyProductsDisplayed() {
-        AssertionHelper.assertTrue(elementhelper.isDisplayed(JsonReader.getLocator("products")));
+
+        AssertionHelper.assertTrue(
+                elementhelper.isDisplayed(
+                        JsonReader.getLocator("products")
+                )
+        );
     }
+
 
     @Step("Order complete message should be <expectedMessage>")
     public void verifyOrderCompleteMessage(String expectedMessage) {
-        String actualMessage = elementhelper.getText(JsonReader.getLocator("complete message"));
-        AssertionHelper.assertEquals(actualMessage, expectedMessage);
+
+        String expectedValue = getTestData(expectedMessage);
+
+        String actualMessage =
+                elementhelper.getText(
+                        JsonReader.getLocator("complete message")
+                );
+
+        AssertionHelper.assertEquals(
+                actualMessage,
+                expectedValue
+        );
     }
+
 
     @Step("Verify checkout error message is <expectedMessage>")
     public void verifyCheckoutErrorMessage(String expectedMessage) {
-        String actualMessage = elementhelper.getText(JsonReader.getLocator("checkout error"));
-        AssertionHelper.assertEquals(actualMessage, expectedMessage);
+
+        String expectedValue = getTestData(expectedMessage);
+
+        String actualMessage =
+                elementhelper.getText(
+                        JsonReader.getLocator("checkout error")
+                );
+
+        AssertionHelper.assertEquals(
+                actualMessage,
+                expectedValue
+        );
     }
+
 
     @Step("User verifies products are sorted by price low to high")
     public void verifyProductsSortedLowToHigh() {
-        List<WebElement> priceElements = Driver.getDriver().findElements(JsonReader.getLocator("product prices"));
+
+        List<WebElement> priceElements =
+                Driver.getDriver()
+                        .findElements(
+                                JsonReader.getLocator("product prices")
+                        );
+
         List<Double> actualPrices = new ArrayList<>();
-        for (WebElement price : priceElements) {actualPrices.add(Double.parseDouble(price.getText().replace("$", "")));
+
+        for (WebElement price : priceElements) {
+            actualPrices.add(
+                    Double.parseDouble(
+                            price.getText().replace("$", "")
+                    )
+            );
         }
-        List<Double> sortedPrices = new ArrayList<>(actualPrices);Collections.sort(sortedPrices);
-        Assert.assertEquals(actualPrices, sortedPrices);
+
+        List<Double> sortedPrices =
+                new ArrayList<>(actualPrices);
+
+        Collections.sort(sortedPrices);
+
+        Assert.assertEquals(
+                actualPrices,
+                sortedPrices
+        );
     }
+
 
     @Step("User should see login page")
     public void verifyLoginPageDisplayed() {
-        AssertionHelper.assertTrue(elementhelper.isDisplayed(JsonReader.getLocator("username")));
+
+        AssertionHelper.assertTrue(
+                elementhelper.isDisplayed(
+                        JsonReader.getLocator("username")
+                )
+        );
     }
+
 
     @Step("User saves cart badge count")
     public void saveCartBadgeCount() {
-        String badgeText = elementhelper.getText(JsonReader.getLocator("shopping cart badge"));
-        savedCartBadgeCount = Integer.parseInt(badgeText);
+
+        String badgeText =
+                elementhelper.getText(
+                        JsonReader.getLocator("shopping cart badge")
+                );
+
+        savedCartBadgeCount =
+                Integer.parseInt(badgeText);
     }
+
 
     @Step("Cart badge should decrease by one")
     public void verifyCartBadgeDecrease() {
-        int currentBadgeCount = elementhelper.getNumber(JsonReader.getLocator("shopping cart badge"));
-        AssertionHelper.assertEquals(currentBadgeCount, savedCartBadgeCount - 1);
+
+        int currentBadgeCount =
+                elementhelper.getNumber(
+                        JsonReader.getLocator("shopping cart badge")
+                );
+
+        AssertionHelper.assertEquals(
+                currentBadgeCount,
+                savedCartBadgeCount - 1
+        );
+    }
+
+
+    private String getTestData(String value) {
+
+        if (value.contains(".")) {
+
+            String[] parts = value.split("\\.");
+
+            return TestDataReader.getValue(
+                    parts[0],
+                    parts[1]
+            );
+        }
+
+        return value;
     }
 }

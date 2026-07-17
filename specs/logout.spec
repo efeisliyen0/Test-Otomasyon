@@ -1,7 +1,8 @@
 # Logout
+
 ## Logout
-* User enters "standard_user" into "username" field
-* User enters "secret_sauce" into "password" field
+* User enters "login.standardUser" into "username" field
+* User enters "login.password" into "password" field
 * User clicks "login" button
 * User clicks "menu" button
 * User clicks "logout" button

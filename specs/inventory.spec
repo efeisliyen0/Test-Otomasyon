@@ -2,18 +2,19 @@
 
 ## View Product Detail
 
-* User enters "standard_user" into "username" field
-* User enters "secret_sauce" into "password" field
+* User enters "login.standardUser" into "username" field
+* User enters "login.password" into "password" field
 * User clicks "login" button
 * User verifies "products page" is displayed
 * User clicks "sauce labs backpack" button
-* User verifies "product name" text is "Sauce Labs Backpack"
+* User verifies "product name" text is "products.backpack"
+
 
 ## Sort Products by Price (Low to High)
 
-* User enters "standard_user" into "username" field
-* User enters "secret_sauce" into "password" field
+* User enters "login.standardUser" into "username" field
+* User enters "login.password" into "password" field
 * User clicks "login" button
 * User verifies "products page" is displayed
-* User selects "Price (low to high)" from sort dropdown
+* User selects "sort.priceLowHigh" from sort dropdown
 * User verifies products are sorted by price low to high
