@@ -2,36 +2,49 @@ package Steps;
 
 import com.thoughtworks.gauge.Step;
 import driverManager.Driver;
+import utils.AllureStepRunner;
 
 public class ActionSteps {
 
     @Step("User refreshes the page")
     public void refreshPage() {
-        Driver.getDriver().navigate().refresh();
+        AllureStepRunner.run("Sayfa yenilendi", () ->
+                Driver.getDriver().navigate().refresh()
+        );
     }
 
     @Step("User goes back")
     public void goBack() {
-        Driver.getDriver().navigate().back();
+        AllureStepRunner.run("Geri gidildi", () ->
+                Driver.getDriver().navigate().back()
+        );
     }
 
     @Step("User goes forward")
     public void goForward() {
-        Driver.getDriver().navigate().forward();
+        AllureStepRunner.run("İleri gidildi", () ->
+                Driver.getDriver().navigate().forward()
+        );
     }
 
     @Step("User maximizes the browser")
     public void maximizeWindow() {
-        Driver.getDriver().manage().window().maximize();
+        AllureStepRunner.run("Pencere büyütüldü", () ->
+                Driver.getDriver().manage().window().maximize()
+        );
     }
 
     @Step("User minimizes the browser")
     public void minimizeWindow() {
-        Driver.getDriver().manage().window().minimize();
+        AllureStepRunner.run("Pencere küçültüldü", () ->
+                Driver.getDriver().manage().window().minimize()
+        );
     }
 
     @Step("User opens <url>")
     public void openUrl(String url) {
-        Driver.getDriver().get(url);
+        AllureStepRunner.run("URL açıldı: " + url, () ->
+                Driver.getDriver().get(url)
+        );
     }
 }
