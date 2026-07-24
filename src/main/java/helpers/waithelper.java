@@ -1,7 +1,5 @@
 package helpers;
 
-import driverManager.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -9,19 +7,22 @@ import java.time.Duration;
 
 public class waithelper {
 
-    public static void waitForElement(By locator) {
-        new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public static void waitForElement(String locatorName) {
+        new WebDriverWait(DriverHelper.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        DriverHelper.getLocator(locatorName)));
     }
 
-    public static void waitForClickable(By locator) {
-        new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(locator));
+    public static void waitForClickable(String locatorName) {
+        new WebDriverWait(DriverHelper.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(
+                        DriverHelper.getLocator(locatorName)));
     }
 
-    public static void waitForInvisible(By locator) {
-        new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    public static void waitForInvisible(String locatorName) {
+        new WebDriverWait(DriverHelper.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.invisibilityOfElementLocated(
+                        DriverHelper.getLocator(locatorName)));
     }
 
     public static void waitSeconds(int seconds) {

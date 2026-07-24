@@ -1,0 +1,34 @@
+{
+  "checkout": {
+    "type": "id",
+    "value": "checkout"
+  },
+  "first name": {
+    "type": "id",
+    "value": "first-name"
+  },
+  "last name": {
+    "type": "id",
+    "value": "last-name"
+  },
+  "postal code": {
+    "type": "id",
+    "value": "postal-code"
+  },
+  "continue": {
+    "type": "id",
+    "value": "continue"
+  },
+  "finish": {
+    "type": "id",
+    "value": "finish"
+  },
+  "completemessage": {
+    "type": "className",
+    "value": "complete-header"
+  },
+  "checkouterror": {
+    "type": "css",
+    "value": "h3[data-test='error']"
+  }
+}

@@ -11,4 +11,4 @@
 * User enters "login.standardUser" into "username" field
 * User enters "login.invalidPassword" into "password" field
 * User clicks "login" button
-* Verify checkout error message is "messages.invalidLogin"
+* User verifies message "loginerror" matches "messages.invalidLogin"

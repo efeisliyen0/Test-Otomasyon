@@ -8,7 +8,7 @@ public class ConfigReader {
     public static Properties properties;
     static {
         try {
-            FileInputStream file = new FileInputStream("src/test/resources/config.properties");
+            FileInputStream file = new FileInputStream("src/test/config.properties");
             properties = new Properties();
             properties.load(file);
         } catch (IOException hata) {

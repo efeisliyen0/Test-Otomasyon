@@ -1,8 +1,8 @@
 {
   "shopping cart badge": {
-    "type": "className",
-    "value": "shopping_cart_badge"
-  },
+  "type": "className",
+  "value": "shopping_cart_badge"
+},
   "remove backpack": {
     "type": "id",
     "value": "remove-sauce-labs-backpack"
@@ -14,5 +14,4 @@
   "cart item": {
     "type": "className",
     "value": "inventory_item_name"
-  }
-}
+  }}

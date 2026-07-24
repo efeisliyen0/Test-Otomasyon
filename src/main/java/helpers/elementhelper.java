@@ -1,50 +1,58 @@
 package helpers;
 
-import driverManager.Driver;
-import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.Select;
-// Eğer waithelper başka bir paketteyse (örneğin helpers) buraya import etmeyi unutma:
-// import helpers.waithelper;
 
 public class elementhelper {
 
-    public static void click(By locator) {
-        waithelper.waitForClickable(locator);
-        Driver.getDriver().findElement(locator).click();
+    public static void click(String locatorName) {
+        waithelper.waitForClickable(locatorName);
+        DriverHelper.getElement(locatorName).click();
     }
 
-    public static void sendKeys(By locator, String text) {
-        waithelper.waitForElement(locator);
-        Driver.getDriver().findElement(locator).sendKeys(text);
+    public static void sendKeys(String locatorName, String text) {
+        waithelper.waitForElement(locatorName);
+        DriverHelper.getElement(locatorName).sendKeys(text);
     }
 
-    public static void clear(By locator) {
-        waithelper.waitForElement(locator);
-        Driver.getDriver().findElement(locator).clear();
+    public static void clear(String locatorName) {
+        waithelper.waitForElement(locatorName);
+        DriverHelper.getElement(locatorName).clear();
     }
 
-    public static String getText(By locator) {
-        waithelper.waitForElement(locator);
-        return Driver.getDriver().findElement(locator).getText();
+    public static String getText(String locatorName) {
+        waithelper.waitForElement(locatorName);
+        return DriverHelper.getElement(locatorName).getText();
     }
 
-    public static boolean isDisplayed(By locator) {
+    public static boolean isDisplayed(String locatorName) {
         try {
-            return Driver.getDriver().findElement(locator).isDisplayed();
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            return false; // Element sayfada hiç yoksa hata verme, false dön
+            return DriverHelper.getElement(locatorName).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
         }
     }
 
-    public static int getNumber(By locator) {
-        waithelper.waitForElement(locator);
-        return Integer.parseInt(Driver.getDriver().findElement(locator).getText());
+    public static int getNumber(String locatorName) {
+        waithelper.waitForElement(locatorName);
+        return Integer.parseInt(DriverHelper.getElement(locatorName).getText());
     }
 
-    public static void selectByVisibleText(By locator, String text) {
-        // Seçim yapmadan önce elementin yüklenmesini beklemek otomasyonu daha kararlı yapar
-        waithelper.waitForElement(locator);
-        Select select = new Select(Driver.getDriver().findElement(locator));
+    public static void selectByVisibleText(String locatorName, String text) {
+        waithelper.waitForElement(locatorName);
+        Select select = new Select(DriverHelper.getElement(locatorName));
         select.selectByVisibleText(text);
+    }
+
+    public static void selectByValue(String locatorName, String value) {
+        waithelper.waitForElement(locatorName);
+        Select select = new Select(DriverHelper.getElement(locatorName));
+        select.selectByValue(value);
+    }
+
+    public static void selectByIndex(String locatorName, int index) {
+        waithelper.waitForElement(locatorName);
+        Select select = new Select(DriverHelper.getElement(locatorName));
+        select.selectByIndex(index);
     }
 }

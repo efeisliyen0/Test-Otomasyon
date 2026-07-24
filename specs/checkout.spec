@@ -15,7 +15,7 @@
 * User enters "checkout.postalCode" into "postal code" field
 * User clicks "continue" button
 * User clicks "finish" button
-* Order complete message should be "checkout.completeMessage"
+* User verifies message "completemessage" matches "messages.orderComplete"
 
 
 ## Checkout Without First Name
@@ -31,4 +31,4 @@
 * User enters "checkout.lastName" into "last name" field
 * User enters "checkout.postalCode" into "postal code" field
 * User clicks "continue" button
-* Verify checkout error message is "messages.emptyFirstNameError"
+* User verifies message "checkouterror" matches "messages.emptyFirstNameError"
