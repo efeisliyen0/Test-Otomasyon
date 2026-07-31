@@ -1,5 +1,5 @@
 {
-  "checkout": {
+  "checkoutbutton": {
     "type": "id",
     "value": "checkout"
   },
@@ -15,11 +15,11 @@
     "type": "id",
     "value": "postal-code"
   },
-  "continue": {
+  "continuebutton": {
     "type": "id",
     "value": "continue"
   },
-  "finish": {
+  "finishbutton": {
     "type": "id",
     "value": "finish"
   },
@@ -27,7 +27,7 @@
     "type": "className",
     "value": "complete-header"
   },
-  "checkouterror": {
+  "checkouterrormessage": {
     "type": "css",
     "value": "h3[data-test='error']"
   }

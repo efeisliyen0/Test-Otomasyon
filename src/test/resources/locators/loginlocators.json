@@ -7,11 +7,11 @@
     "type": "id",
     "value": "password"
   },
-  "login": {
+  "login button": {
     "type": "id",
     "value": "login-button"
   },
-  "loginerror": {
+  "loginerrormessage": {
     "type": "css",
     "value": "[data-test='error']"
   }

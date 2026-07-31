@@ -5,13 +5,11 @@ import helpers.elementhelper;
 import helpers.TestDataHelper;
 import utils.AllureStepRunner;
 
-public class InventorySteps {
+public class InventorySteps extends elementhelper {
 
     @Step("User selects <option> from sort dropdown")
     public void selectSortDropdown(String option) {
-        AllureStepRunner.run("Sıralama seçildi: " + option, () -> {
             String value = TestDataHelper.getTestData(option);
-            elementhelper.selectByVisibleText("sort", value);
-        });
+            super.selectByVisibleText("sort", value);;
     }
 }

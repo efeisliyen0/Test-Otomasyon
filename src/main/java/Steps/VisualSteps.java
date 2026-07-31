@@ -15,24 +15,18 @@ public class VisualSteps {
 
     @Step("User takes baseline screenshot as <fileName>")
     public void takeBaselineScreenshot(String fileName) {
-        AllureStepRunner.run("Baseline ekran görüntüsü alındı: " + fileName, () -> {
             ScreenshotHelper.takeScreenshot(BASELINE_PATH, fileName);
-            ScreenshotHelper.attachToAllure("Baseline - " + fileName);
-        });
+            ScreenshotHelper.attachToAllure("Baseline - " + fileName);;
     }
 
     @Step("User takes actual screenshot as <fileName>")
     public void takeActualScreenshot(String fileName) {
-        AllureStepRunner.run("Güncel ekran görüntüsü alındı: " + fileName, () -> {
             ScreenshotHelper.takeScreenshot(ACTUAL_PATH, fileName);
-            ScreenshotHelper.attachToAllure("Actual - " + fileName);
-        });
+            ScreenshotHelper.attachToAllure("Actual - " + fileName);;
     }
 
     @Step("User compares screenshot with baseline <fileName>")
     public void compareScreenshot(String fileName) {
-        AllureStepRunner.run("Karşılaştırma yapıldı: " + fileName, () ->
-                ImageComparisonHelper.compare(fileName)
-        );
+                ImageComparisonHelper.compare(fileName);
     }
 }

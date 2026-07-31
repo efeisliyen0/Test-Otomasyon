@@ -1,17 +1,17 @@
 {
-  "menu": {
+  "menubutton": {
     "type": "id",
     "value": "react-burger-menu-btn"
   },
-  "logout": {
+  "logoutbutton": {
     "type": "id",
     "value": "logout_sidebar_link"
   },
-  "reset app state": {
+  "reset app state button": {
     "type": "id",
     "value": "reset_sidebar_link"
   },
-  "all items": {
+  "all items button": {
     "type": "id",
     "value": "inventory_sidebar_link"
   },
@@ -19,7 +19,7 @@
     "type": "className",
     "value": "title"
   },
-  "shopping cart": {
+  "shopping cart button": {
     "type": "className",
     "value": "shopping_cart_link"
   },
@@ -27,7 +27,7 @@
     "type": "className",
     "value": "product_sort_container"
   },
-  "add to cart backpack": {
+  "add to cart backpack button": {
     "type": "id",
     "value": "add-to-cart-sauce-labs-backpack"
   },
@@ -35,7 +35,7 @@
     "type": "xpath",
     "value": "//div[@class='inventory_details_container']//div[contains(@class,'name')]"
   },
-  "sauce labs backpack": {
+  "sauce labs backpack item": {
     "type": "xpath",
     "value": "//div[text()='Sauce Labs Backpack']"
   },
