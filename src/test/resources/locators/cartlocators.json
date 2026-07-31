@@ -1,0 +1,17 @@
+{
+  "shopping cart badge": {
+  "type": "className",
+  "value": "shopping_cart_badge"
+},
+  "remove backpack button": {
+    "type": "id",
+    "value": "remove-sauce-labs-backpack"
+  },
+  "cart title": {
+    "type": "className",
+    "value": "title"
+  },
+  "cart item": {
+    "type": "className",
+    "value": "inventory_item_name"
+  }}

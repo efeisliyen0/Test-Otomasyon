@@ -1,0 +1,34 @@
+{
+  "checkoutbutton": {
+    "type": "id",
+    "value": "checkout"
+  },
+  "first name": {
+    "type": "id",
+    "value": "first-name"
+  },
+  "last name": {
+    "type": "id",
+    "value": "last-name"
+  },
+  "postal code": {
+    "type": "id",
+    "value": "postal-code"
+  },
+  "continuebutton": {
+    "type": "id",
+    "value": "continue"
+  },
+  "finishbutton": {
+    "type": "id",
+    "value": "finish"
+  },
+  "completemessage": {
+    "type": "className",
+    "value": "complete-header"
+  },
+  "checkouterrormessage": {
+    "type": "css",
+    "value": "h3[data-test='error']"
+  }
+}
