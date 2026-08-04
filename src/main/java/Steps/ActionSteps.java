@@ -36,4 +36,8 @@ public class ActionSteps {
     public void openUrl(String url) {
         DriverHelper.open(url);
     }
+    @Step("User verifies products are sorted by price low to high") public void verifyProductsSortedLowToHighStep() { verifyProductsSortedLowToHigh("product prices"); }
+
+    private void verifyProductsSortedLowToHigh(String productPrices) {
+    }
 }

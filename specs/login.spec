@@ -4,7 +4,7 @@
 * User enters "login.standardUser" into "username" field
 * User enters "login.password" into "password" field
 * User clicks "login button" button
-* User should see products
+* User verifies "products" is displayed
 
 
 ## Invalid Login - Wrong Password

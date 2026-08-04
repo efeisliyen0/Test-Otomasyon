@@ -6,4 +6,4 @@
 * User clicks "login button" button
 * User clicks "menubutton" button
 * User clicks "logoutbutton" button
-* User should see login page
+* User verifies "products" is displayed

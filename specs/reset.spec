@@ -9,7 +9,7 @@
 * User clicks "shopping cart button" button
 * User verifies "shopping cart badge" value is "cart.expectedCartCount"
 * User verifies "cart item" text is "products.backpack"
-* User saves cart badge count
+* User saves "shopping cart badge" count
 * User clicks "menubutton" button
 * User clicks "all items button" button
 * User clicks "menubutton" button

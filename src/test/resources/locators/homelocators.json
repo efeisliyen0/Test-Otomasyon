@@ -50,5 +50,21 @@
   "inventory item name": {
     "type": "className",
     "value": "inventory_item_name"
+  },
+  "sort dropdown": {
+    "type": "css",
+    "value": "[data-test='product-sort-container']"
+  },
+  "price low to high": {
+    "type": "xpath",
+    "value": "//option[@value='lohi']"
+  },
+  "first product price": {
+    "type": "xpath",
+    "value": "(//div[@data-test='inventory-item-price'])[1]"
+  },
+  "second product price": {
+    "type": "xpath",
+    "value": "(//div[@data-test='inventory-item-price'])[2]"
   }
 }

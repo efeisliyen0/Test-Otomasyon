@@ -9,7 +9,7 @@
 * User takes baseline screenshot as "login.screenshotName"
 * User clicks "menubutton" button
 * User clicks "logoutbutton" button
-* User should see login page
+* User verifies "products" is displayed
 * User enters "login.visualUser" into "username" field
 * User enters "login.password" into "password" field
 * User clicks "login button" button

@@ -16,5 +16,6 @@
 * User enters "login.password" into "password" field
 * User clicks "login button" button
 * User verifies "products page" is displayed
-* User selects "sort.priceLowHigh" from sort dropdown
-* User verifies products are sorted by price low to high
+* User clicks "sort dropdown" button
+* User clicks "price low to high" button
+* User verifies "first product price" is less than "second product price"

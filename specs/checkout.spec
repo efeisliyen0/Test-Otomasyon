@@ -5,7 +5,7 @@
 * User enters "login.standardUser" into "username" field
 * User enters "login.password" into "password" field
 * User clicks "login button" button
-* User should see products
+* User verifies "products" is displayed
 * User clicks "add to cart backpack button" button
 * User verifies "shopping cart badge" value is "cart.oneItem"
 * User clicks "shopping cart button" button
@@ -23,7 +23,7 @@
 * User enters "login.standardUser" into "username" field
 * User enters "login.password" into "password" field
 * User clicks "login button" button
-* User should see products
+* User verifies "products" is displayed
 * User clicks "add to cart backpack button" button
 * User clicks "shopping cart button" button
 * User clicks "checkoutbutton" button
